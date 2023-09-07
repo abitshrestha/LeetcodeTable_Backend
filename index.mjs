@@ -11,6 +11,11 @@ app.listen(port, () => {
 app.use(cors());
 app.use(express.json());
 
+app.get('/',(req,res)=>{
+    res.setHeader("Access-Control-Allow-Credentials","true");
+    res.send("API is running");
+});
+
 app.get("/getuserdata", async (req, res) => {
   const { username } = req.query;
   try {
